@@ -144,6 +144,7 @@ ai --ollama --model qwen3-coder
 
 # Use with tier flags
 ai --ollama --opus  # Uses OLLAMA_MODEL_HIGH if set
+ai --ollama --best  # Fable 5 is Anthropic-only — falls back to the highest local tier with a notice
 ```
 
 <Card title="Ollama Anthropic API Compatibility" icon="book" href="https://docs.ollama.com/api/anthropic-compatibility">
@@ -252,6 +253,7 @@ ai --lm --model openai/gpt-oss-20b
 
 # Use with tier flags
 ai --lm --opus  # Uses LMSTUDIO_MODEL_HIGH if set
+ai --lm --best  # Fable 5 is Anthropic-only — falls back to the highest local tier with a notice
 ```
 
 <Card title="LM Studio Claude Code Guide" icon="book" href="https://lmstudio.ai/blog/claudecode">

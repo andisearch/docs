@@ -83,10 +83,11 @@ Choose your runtime — [Claude Code](https://claude.ai/code) or [Codex CLI](htt
   </Accordion>
 
   <Accordion title="Model Tiers" icon="layer-group">
-    Simple tier selection across all providers: `--opus`/`--high`, `--sonnet`/`--mid`, `--haiku`/`--low`
+    Simple tier selection across all providers: `--fable`/`--best`, `--opus`/`--high`, `--sonnet`/`--mid`, `--haiku`/`--low`
     
     ```bash
-    ai --opus task.md                 # Opus 4.8 (most capable)
+    ai --fable task.md                # Claude Fable 5 (top tier, Anthropic only)
+    ai --opus task.md                 # Opus 4.8 (default)
     ai --sonnet task.md               # Sonnet 4.6
     ai --haiku task.md                # Haiku 4.5 (fastest)
     ```

@@ -62,6 +62,7 @@ ai --aws --haiku quick-fix.md
 Override default models in `secrets.sh`:
 
 ```bash
+export CLAUDE_MODEL_FABLE_AWS="global.anthropic.claude-fable-5"
 export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-4-8"
 export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-4-6"
 export CLAUDE_MODEL_HAIKU_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
@@ -132,6 +133,7 @@ ai --vertex --haiku quick-fix.md
 Override default models in `secrets.sh`:
 
 ```bash
+export CLAUDE_MODEL_FABLE_VERTEX="claude-fable-5"
 export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-4-8"
 export CLAUDE_MODEL_SONNET_VERTEX="claude-sonnet-4-6"
 export CLAUDE_MODEL_HAIKU_VERTEX="claude-haiku-4-5@20251001"
@@ -189,6 +191,7 @@ ai --apikey --haiku quick-fix.md
 Override default models in `secrets.sh`:
 
 ```bash
+export CLAUDE_MODEL_FABLE_ANTHROPIC="claude-fable-5"
 export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-4-8"
 export CLAUDE_MODEL_SONNET_ANTHROPIC="claude-sonnet-4-6"
 export CLAUDE_MODEL_HAIKU_ANTHROPIC="claude-haiku-4-5"
@@ -257,6 +260,7 @@ ai --azure --haiku quick-fix.md
 Azure model names are deployment names (user-defined). Override in `secrets.sh`:
 
 ```bash
+export CLAUDE_MODEL_FABLE_AZURE="claude-fable-5"
 export CLAUDE_MODEL_OPUS_AZURE="claude-opus-4-8"
 export CLAUDE_MODEL_SONNET_AZURE="claude-sonnet-4-6"
 export CLAUDE_MODEL_HAIKU_AZURE="claude-haiku-4-5"
@@ -338,6 +342,9 @@ export CLAUDE_MODEL_SONNET_VERCEL="xai/grok-code-fast-1"
 
 # Set a specific background/small-fast model
 export CLAUDE_SMALL_FAST_MODEL_VERCEL="xai/grok-code-fast-1"
+
+# Fable 5 (--fable/--best) slug; override if Vercel's catalog differs
+export CLAUDE_MODEL_FABLE_VERCEL="anthropic/claude-fable-5"
 ```
 
 <Tip>
@@ -379,6 +386,10 @@ ai --pro --haiku quick-fix.md
 
 <Note>
 This is the default provider if you're logged into Claude Code with a subscription.
+</Note>
+
+<Note>
+`--fable`/`--best` (Claude Fable 5) works with `--pro`, but availability depends on your Claude subscription plan. If your plan doesn't include Fable, use an API provider (`--apikey`, `--aws`, `--vertex`) instead.
 </Note>
 
 <Warning>

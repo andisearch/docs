@@ -3,7 +3,7 @@ title: Model Flags
 description: Select model tiers or specific model IDs
 ---
 
-Model flags let you choose which AI model to use. You can select by tier (Opus, Sonnet, Haiku) or specify an exact model ID.
+Model flags let you choose which AI model to use. You can select by tier (Fable, Opus, Sonnet, Haiku) or specify an exact model ID.
 
 ## Cross-Runtime Model Mapping
 
@@ -11,15 +11,46 @@ The same tier flag selects each runtime's equivalent model:
 
 | Tier | Flag | Claude Code | Codex CLI |
 |------|------|-------------|-----------|
+| Fable | `--fable` / `--best` | claude-fable-5 | gpt-5.4 (fallback — no Fable) |
 | High | `--opus` / `--high` | claude-opus-4-8 | gpt-5.4 |
 | Mid | `--sonnet` / `--mid` | claude-sonnet-4-6 | gpt-5.3-codex |
 | Low | `--haiku` / `--low` | claude-haiku-4-5 | gpt-5.4-mini |
 
 <Tip>
-  Tier flags work the same way regardless of runtime. `--opus` always gives you the highest-tier model for whichever runtime is active.
+  `--opus` (the default) gives you the highest Opus-tier model for whichever runtime is active. `--fable`/`--best` selects Claude Fable 5, Anthropic's most capable model — it's available on Anthropic providers only, and on other runtimes (Ollama, LM Studio, Codex) it falls back to that runtime's highest tier with a one-line notice.
 </Tip>
 
 ## Tier Flags
+
+### Fable Tier (Fable 5)
+
+<ParamField path="--fable" type="flag">
+  **Most capable model** - Claude Fable 5, Anthropic's most powerful model (a tier above Opus). Anthropic providers only; not the default.
+
+  ```bash
+  ai --fable task.md
+  ai --aws --fable
+  ai --apikey --best          # --best is a synonym for --fable
+  ```
+
+  **Equivalent:** `--best`
+
+  **Default model:** `claude-fable-5` ($10/$50 per MTok, 1M context)
+
+  **Availability:** Anthropic API, AWS Bedrock, Vertex AI, Azure, Vercel, and Claude Pro (subject to your subscription). On Ollama, LM Studio, and Codex it falls back to that runtime's highest tier and prints a notice.
+
+  **Use for:**
+  - The most demanding reasoning and long-horizon agentic work
+  - Tasks where Opus isn't quite enough
+</ParamField>
+
+<ParamField path="--best" type="flag">
+  Alias for `--fable`
+
+  ```bash
+  ai --best task.md
+  ```
+</ParamField>
 
 ### High Tier (Opus)
 
@@ -147,11 +178,12 @@ Claude Pro/Max doesn't support tier selection - it always uses the latest availa
 
 | Tier | Default Model |
 |------|---------------|
+| Fable (`--fable`, `--best`) | `claude-fable-5` |
 | Opus (`--opus`, `--high`) | `claude-opus-4-8` |
 | Sonnet (`--sonnet`, `--mid`) | `claude-sonnet-4-6` |
 | Haiku (`--haiku`, `--low`) | `claude-haiku-4-5` |
 
-**Default tier:** High (Opus)
+**Default tier:** High (Opus) — Fable is opt-in via `--fable`/`--best`.
 
 ```bash
 ai --aws                 # Uses Opus
@@ -176,7 +208,7 @@ Local providers don't have default models - you must specify with `--model` or c
 | Mid (`--sonnet`, `--mid`) | `gpt-5.3-codex` |
 | Low (`--haiku`, `--low`) | `gpt-5.4-mini` |
 
-**Default:** gpt-5.4 (Codex native default). Tier flags override: `--mid` selects gpt-5.3-codex.
+**Default:** gpt-5.4 (Codex native default). Tier flags override: `--mid` selects gpt-5.3-codex. `--fable`/`--best` has no Codex equivalent, so it falls back to the High tier (`gpt-5.4`) with a notice.
 
 ```bash
 ai --codex                   # Uses gpt-5.4 (native default)
@@ -222,6 +254,13 @@ export CLAUDE_SMALL_FAST_MODEL_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
 # Override Vertex Opus model
 export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-4-8"
+
+# Override Fable 5 (top tier, --fable/--best) per provider
+export CLAUDE_MODEL_FABLE_ANTHROPIC="claude-fable-5"
+export CLAUDE_MODEL_FABLE_AWS="global.anthropic.claude-fable-5"
+export CLAUDE_MODEL_FABLE_VERTEX="claude-fable-5"
+export CLAUDE_MODEL_FABLE_AZURE="claude-fable-5"
+export CLAUDE_MODEL_FABLE_VERCEL="anthropic/claude-fable-5"
 ```
 
 See `~/.ai-runner/models.sh` for all available override variables.
