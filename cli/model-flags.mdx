@@ -39,6 +39,12 @@ The same tier flag selects each runtime's equivalent model:
 
   **Availability:** Anthropic API, AWS Bedrock, Vertex AI, Azure, Vercel, and Claude Pro (subject to your subscription). On Ollama, LM Studio, and Codex it falls back to that runtime's highest tier and prints a notice.
 
+  **Data retention:** Fable 5 is a Mythos-class *Covered Model*. Anthropic retains inputs/outputs for **30 days with human review on every platform that offers it** — direct API, Pro, Bedrock, Vertex, and Azure alike. This is a property of the model, so switching providers doesn't avoid it; the only way to avoid it is to not use Fable (use `--opus`).
+
+  **Cloud enablement:** Because of that retention, **Bedrock** (`--aws`) and **Vertex** (`--vertex`) need a one-time, account/project-level data-sharing enablement before they'll serve Fable, or requests fail (`400`/`403`). `--apikey` and `--azure` need no step — their standard config already shares with Anthropic (same retention, just no manual enablement). See the [AWS Bedrock](../providers/cloud#aws-bedrock) and [Vertex AI](../providers/cloud#google-vertex-ai) provider docs for exact steps.
+
+  <Note>Exception: **zero-data-retention (ZDR) organizations** must explicitly turn retention on for Fable on *every* platform — including the direct API (Console → Workspace → Privacy Controls) and Azure — since ZDR and Covered Models are mutually exclusive.</Note>
+
   **Use for:**
   - The most demanding reasoning and long-horizon agentic work
   - Tasks where Opus isn't quite enough
