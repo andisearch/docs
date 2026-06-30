@@ -41,7 +41,7 @@ When stdout is redirected, you get **only the AI's response** — no status mess
 ```bash
 $ ./analyze.md > results.txt
 [AI Runner] Using: Claude Code + Claude Pro
-[AI Runner] Model: claude-sonnet-4-6
+[AI Runner] Model: claude-sonnet-5
 [Processing...]
 [AI Runner] Done
 ```
@@ -177,7 +177,7 @@ cat large-dataset.json | ai --live --skip analyze.md
 **Console output (stderr):**
 ```
 [AI Runner] Using: Claude Code + Claude Pro
-[AI Runner] Model: claude-sonnet-4-6
+[AI Runner] Model: claude-sonnet-5
 
 I'm analyzing the dataset structure...
 Found 1,247 records spanning 3 categories...
@@ -203,7 +203,7 @@ When stdout is redirected with `--live`, AIRun intelligently splits the output:
 **What you see on console (stderr):**
 ```
 [AI Runner] Using: Claude Code + Claude Pro
-[AI Runner] Model: claude-sonnet-4-6
+[AI Runner] Model: claude-sonnet-5
 
 I'll explore the repository structure...
 Found 15 source files in src/...

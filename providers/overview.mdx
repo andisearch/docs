@@ -94,7 +94,7 @@ Andi AIRun uses a tiered model system to balance performance and cost:
 |------|---------|----------|---------------|
 | **Fable** | `--fable`, `--best` | Most demanding reasoning, long-horizon agentic work (Anthropic only) | Claude Fable 5 |
 | **High** | `--opus`, `--high` | Complex reasoning, large refactors (default) | Claude Opus 4.8 |
-| **Mid** | `--sonnet`, `--mid` | Cost-conscious coding tasks | Claude Sonnet 4.6 |
+| **Mid** | `--sonnet`, `--mid` | Cost-conscious coding tasks | Claude Sonnet 5 |
 | **Low** | `--haiku`, `--low` | Fast operations, small edits | Claude Haiku 4.5 |
 
 Claude Fable 5 is Anthropic's most capable model, a tier above Opus. It's opt-in (Opus stays the default) and available on Anthropic providers only — on Ollama, LM Studio, and Codex, `--fable`/`--best` falls back to that runtime's highest tier with a notice.
@@ -128,19 +128,19 @@ You can customize model tiers per provider in `secrets.sh`:
 # AWS Bedrock
 export CLAUDE_MODEL_FABLE_AWS="global.anthropic.claude-fable-5"
 export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-4-8"
-export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-4-6"
+export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
 # Google Vertex AI
 export CLAUDE_MODEL_FABLE_VERTEX="claude-fable-5"
 export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-4-8"
-export CLAUDE_MODEL_SONNET_VERTEX="claude-sonnet-4-6"
+export CLAUDE_MODEL_SONNET_VERTEX="claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_VERTEX="claude-haiku-4-5@20251001"
 
 # Anthropic API (also used by --pro)
 export CLAUDE_MODEL_FABLE_ANTHROPIC="claude-fable-5"
 export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-4-8"
-export CLAUDE_MODEL_SONNET_ANTHROPIC="claude-sonnet-4-6"
+export CLAUDE_MODEL_SONNET_ANTHROPIC="claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_ANTHROPIC="claude-haiku-4-5"
 
 # Vercel AI Gateway

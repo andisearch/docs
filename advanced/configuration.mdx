@@ -32,7 +32,7 @@ nano ~/.ai-runner/secrets.sh
 
 ```bash
 # Override AWS models
-export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-4-6"
+export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-5"
 export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-4-8"
 export CLAUDE_MODEL_HAIKU_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
@@ -48,7 +48,7 @@ export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-4-8"
 ### Google Vertex AI
 
 ```bash
-export CLAUDE_MODEL_SONNET_VERTEX="claude-sonnet-4-6"
+export CLAUDE_MODEL_SONNET_VERTEX="claude-sonnet-5"
 export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-4-8"
 export CLAUDE_MODEL_HAIKU_VERTEX="claude-haiku-4-5@20251001"
 
@@ -58,7 +58,7 @@ export CLAUDE_SMALL_FAST_MODEL_VERTEX="claude-haiku-4-5@20251001"
 ### Anthropic API
 
 ```bash
-export CLAUDE_MODEL_SONNET_ANTHROPIC="claude-sonnet-4-6"
+export CLAUDE_MODEL_SONNET_ANTHROPIC="claude-sonnet-5"
 export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-4-8"
 export CLAUDE_MODEL_HAIKU_ANTHROPIC="claude-haiku-4-5"
 
@@ -70,7 +70,7 @@ export CLAUDE_SMALL_FAST_MODEL_ANTHROPIC="claude-haiku-4-5"
 Model names are deployment names from your Azure portal:
 
 ```bash
-export CLAUDE_MODEL_SONNET_AZURE="claude-sonnet-4-6"
+export CLAUDE_MODEL_SONNET_AZURE="claude-sonnet-5"
 export CLAUDE_MODEL_OPUS_AZURE="claude-opus-4-8"
 export CLAUDE_MODEL_HAIKU_AZURE="claude-haiku-4-5"
 
@@ -82,7 +82,7 @@ export CLAUDE_SMALL_FAST_MODEL_AZURE="claude-haiku-4-5"
 Use `provider/model` format (dots not dashes in version numbers):
 
 ```bash
-export CLAUDE_MODEL_SONNET_VERCEL="anthropic/claude-sonnet-4.6"
+export CLAUDE_MODEL_SONNET_VERCEL="anthropic/claude-sonnet-5"
 export CLAUDE_MODEL_OPUS_VERCEL="anthropic/claude-opus-4.8"
 export CLAUDE_MODEL_HAIKU_VERCEL="anthropic/claude-haiku-4.5"
 
@@ -230,7 +230,7 @@ Customize in `~/.ai-runner/secrets.sh`:
 
 ```bash
 # Use Sonnet instead of Haiku for background work
-export CLAUDE_SMALL_FAST_MODEL_AWS="global.anthropic.claude-sonnet-4-6"
+export CLAUDE_SMALL_FAST_MODEL_AWS="global.anthropic.claude-sonnet-5"
 
 # Use same model for both (consistency over cost)
 export CLAUDE_SMALL_FAST_MODEL_AWS="${CLAUDE_MODEL_OPUS_AWS}"
@@ -286,7 +286,7 @@ Shipped with AI Runner, defines default model IDs for each provider:
 
 ```bash
 # AWS Bedrock defaults
-export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-4-6"
+export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-5"
 export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-4-8"
 export CLAUDE_MODEL_HAIKU_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
