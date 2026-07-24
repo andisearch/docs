@@ -289,7 +289,7 @@ AIRun uses sensible default models for each provider, but you can override them.
 AIRun provides these model tiers:
 
 - `--fable` / `--best` - Most capable model (Claude Fable 5, Anthropic providers only; opt-in)
-- `--opus` / `--high` - Highest Opus-tier model (Opus 4.8, default)
+- `--opus` / `--high` - Highest Opus-tier model (Opus 5, default)
 - `--sonnet` / `--mid` - Mid-tier model (Sonnet 5)
 - `--haiku` / `--low` - Lowest-tier model (Haiku 4.5, fastest)
 
@@ -301,19 +301,19 @@ To use different model versions, add overrides to `~/.ai-runner/secrets.sh`:
 # AWS Bedrock Models
 export CLAUDE_MODEL_FABLE_AWS="global.anthropic.claude-fable-5"
 export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-5"
-export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-5"
 export CLAUDE_MODEL_HAIKU_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
 # Google Vertex Models
 export CLAUDE_MODEL_FABLE_VERTEX="claude-fable-5"
 export CLAUDE_MODEL_SONNET_VERTEX="claude-sonnet-5"
-export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-5"
 export CLAUDE_MODEL_HAIKU_VERTEX="claude-haiku-4-5@20251001"
 
 # Anthropic API Models
 export CLAUDE_MODEL_FABLE_ANTHROPIC="claude-fable-5"
 export CLAUDE_MODEL_SONNET_ANTHROPIC="claude-sonnet-5"
-export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-5"
 export CLAUDE_MODEL_HAIKU_ANTHROPIC="claude-haiku-4-5"
 ```
 

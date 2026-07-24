@@ -78,7 +78,7 @@ Override default models in `secrets.sh`:
 
 ```bash
 export CLAUDE_MODEL_FABLE_AWS="global.anthropic.claude-fable-5"
-export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-5"
 export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
 export CLAUDE_SMALL_FAST_MODEL_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
@@ -167,7 +167,7 @@ Override default models in `secrets.sh`:
 
 ```bash
 export CLAUDE_MODEL_FABLE_VERTEX="claude-fable-5"
-export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-5"
 export CLAUDE_MODEL_SONNET_VERTEX="claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_VERTEX="claude-haiku-4-5@20251001"
 export CLAUDE_SMALL_FAST_MODEL_VERTEX="claude-haiku-4-5@20251001"
@@ -225,7 +225,7 @@ Override default models in `secrets.sh`:
 
 ```bash
 export CLAUDE_MODEL_FABLE_ANTHROPIC="claude-fable-5"
-export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-5"
 export CLAUDE_MODEL_SONNET_ANTHROPIC="claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_ANTHROPIC="claude-haiku-4-5"
 export CLAUDE_SMALL_FAST_MODEL_ANTHROPIC="claude-haiku-4-5"
@@ -294,7 +294,7 @@ Azure model names are deployment names (user-defined). Override in `secrets.sh`:
 
 ```bash
 export CLAUDE_MODEL_FABLE_AZURE="claude-fable-5"
-export CLAUDE_MODEL_OPUS_AZURE="claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_AZURE="claude-opus-5"
 export CLAUDE_MODEL_SONNET_AZURE="claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_AZURE="claude-haiku-4-5"
 export CLAUDE_SMALL_FAST_MODEL_AZURE="claude-haiku-4-5"
@@ -335,6 +335,16 @@ ai --vercel
 ai --vercel --opus task.md
 ai --vercel --sonnet task.md
 ai --vercel --haiku quick-fix.md
+```
+
+Vercel slugs use the `anthropic/model-name` form. Override the per-tier
+defaults in `secrets.sh`:
+
+```bash
+export CLAUDE_MODEL_FABLE_VERCEL="anthropic/claude-fable-5"
+export CLAUDE_MODEL_OPUS_VERCEL="anthropic/claude-opus-5"
+export CLAUDE_MODEL_SONNET_VERCEL="anthropic/claude-sonnet-5"
+export CLAUDE_MODEL_HAIKU_VERCEL="anthropic/claude-haiku-4.5"
 ```
 
 ### Use Any Model

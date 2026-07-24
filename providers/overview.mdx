@@ -93,7 +93,7 @@ Andi AIRun uses a tiered model system to balance performance and cost:
 | Tier | Aliases | Use Case | Claude Models |
 |------|---------|----------|---------------|
 | **Fable** | `--fable`, `--best` | Most demanding reasoning, long-horizon agentic work (Anthropic only) | Claude Fable 5 |
-| **High** | `--opus`, `--high` | Complex reasoning, large refactors (default) | Claude Opus 4.8 |
+| **High** | `--opus`, `--high` | Complex reasoning, large refactors (default) | Claude Opus 5 |
 | **Mid** | `--sonnet`, `--mid` | Cost-conscious coding tasks | Claude Sonnet 5 |
 | **Low** | `--haiku`, `--low` | Fast operations, small edits | Claude Haiku 4.5 |
 
@@ -127,19 +127,19 @@ You can customize model tiers per provider in `secrets.sh`:
 ```bash
 # AWS Bedrock
 export CLAUDE_MODEL_FABLE_AWS="global.anthropic.claude-fable-5"
-export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_AWS="global.anthropic.claude-opus-5"
 export CLAUDE_MODEL_SONNET_AWS="global.anthropic.claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_AWS="us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
 # Google Vertex AI
 export CLAUDE_MODEL_FABLE_VERTEX="claude-fable-5"
-export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_VERTEX="claude-opus-5"
 export CLAUDE_MODEL_SONNET_VERTEX="claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_VERTEX="claude-haiku-4-5@20251001"
 
 # Anthropic API (also used by --pro)
 export CLAUDE_MODEL_FABLE_ANTHROPIC="claude-fable-5"
-export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-4-8"
+export CLAUDE_MODEL_OPUS_ANTHROPIC="claude-opus-5"
 export CLAUDE_MODEL_SONNET_ANTHROPIC="claude-sonnet-5"
 export CLAUDE_MODEL_HAIKU_ANTHROPIC="claude-haiku-4-5"
 
@@ -176,7 +176,7 @@ ai --vercel --model xai/grok-code-fast-1
 ai --ollama --model glm-5:cloud
 
 # Use a specific AWS model
-ai --aws --model global.anthropic.claude-opus-4-8
+ai --aws --model global.anthropic.claude-opus-5
 ```
 
 ## Agent Teams
